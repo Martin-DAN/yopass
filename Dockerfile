@@ -12,4 +12,4 @@ RUN yarn install && yarn build
 FROM gcr.io/distroless/base
 COPY --from=app /yopass/yopass /yopass/yopass-server /
 COPY --from=website /website/build /public
-ENTRYPOINT ["/yopass-server"]
+ENTRYPOINT ["/yopass-server --max-length 1000000"]
